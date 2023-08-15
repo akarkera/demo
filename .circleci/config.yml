@@ -17,6 +17,8 @@ jobs:
       - run: |
           gem install bundler
           bundle install
+          bundle exec rake app:db:create
+          bundle exec rake app:db:schema:load
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
