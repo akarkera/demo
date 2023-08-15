@@ -17,9 +17,18 @@ jobs:
       - run: |
           gem install bundler
           bundle install
-          bundle exec rake db:create RAILS_ENV=test
-          bundle exec rake db:migrate RAILS_ENV=test
-          rails test
+  demo-tests:
+    steps:
+      - run:
+          name: setup db for tests
+          command: |
+            bundle exec rake db:create RAILS_ENV=test
+            bundle exec rake db:migrate RAILS_ENV=test
+      - run:
+          name: run the tests
+          command: |
+            rails test
+
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
