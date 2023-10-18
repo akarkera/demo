@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/ruby:3.2.2
+      - image: circleci/ruby:3.2.2  # Change the Ruby version to match the one in your Gemfile
 
     steps:
       - checkout
